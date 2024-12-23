@@ -23,9 +23,10 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
         _messages.add(Message(text: _controller.text, isUser: true));
         _isLoading = true;
       }
-
       final model = GenerativeModel(
-          model: 'gemini-pro', apiKey: dotenv.env['GOOGLE_API_KEY']!);
+        model: 'gemini-pro',
+        apiKey: "AIzaSyD52ymSbkmSZmD2HMHB-CSEhZKcvI3Krok", // <-- Hard-coded
+      );
       final prompt = _controller.text.trim();
       final content = [Content.text(prompt)];
       final response = await model.generateContent(content);
